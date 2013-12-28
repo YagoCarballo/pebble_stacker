@@ -1,0 +1,8 @@
+argv = ['/Users/yagocarballo/pebble-dev/Pebble/waf', 'configure', 'build']
+environ = {'SSH_AUTH_SOCK': '/tmp/launch-vUE6El/Listeners', 'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'LC_CTYPE': 'UTF-8', 'GPG_AGENT_INFO': '/Users/yagocarballo/.gnupg/S.gpg-agent:339:1', 'Apple_PubSub_Socket_Render': '/tmp/launch-5DsNlN/Render', 'LOGNAME': 'yagocarballo', 'USER': 'yagocarballo', 'HOME': '/Users/yagocarballo', 'ITERM_PROFILE': 'Default', 'PATH': '/Users/yagocarballo/pebble-dev/arm-cs-tools/bin:/Users/yagocarballo/pebble-dev/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin', 'TMPDIR': '/var/folders/wj/ngxwlcdd1xbfzwvgrnhrdytr0000gn/T/', 'TERM_PROGRAM': 'iTerm.app', 'TERM': 'xterm-256color', 'SHELL': '/bin/bash', 'VERSIONER_PYTHON_VERSION': '2.7', 'SHLVL': '2', 'PWD': '/Users/yagocarballo/Desktop/PebbleStacker/pebble_stacker', '__CF_USER_TEXT_ENCODING': '0x1F5:0:0', 'ITERM_SESSION_ID': 'w0t1p0', '_': '/Users/yagocarballo/pebble-dev/Pebble/waf', 'SSH_AGENT_PID': '339', '__CHECKFIX1436934': '1'}
+files = ['/Users/yagocarballo/Desktop/PebbleStacker/pebble_stacker/wscript']
+hash = 6045265195391904172
+options = {'files': '', 'jobs': 8, 'verbose': 0, 'nocache': False, 'progress_bar': 0, 'timestamp': None, 'distcheck_args': None, 'top': '', 'destdir': '', 'keep': 0, 'zones': '', 'debug': False, 'prefix': '/usr/local/', 'download': False, 'force': False, 'targets': '', 'out': ''}
+out_dir = '/Users/yagocarballo/Desktop/PebbleStacker/pebble_stacker/build'
+run_dir = '/Users/yagocarballo/Desktop/PebbleStacker/pebble_stacker'
+top_dir = '/Users/yagocarballo/Desktop/PebbleStacker/pebble_stacker'
