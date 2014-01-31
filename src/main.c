@@ -10,14 +10,16 @@ GBitmap     * splashImage;
 BitmapLayer * splashLayer;
 
 void splash_deinit () {
+	if (timer != NULL) app_timer_cancel (timer); // TODO: Look why this breaks the App on the v2.0-RC
 	window_stack_remove(window, true);
-	app_timer_cancel(timer);
 	gbitmap_destroy(splashImage);
 	bitmap_layer_destroy(splashLayer);
 	window_destroy(window);
+	free(timer);
 }
 
-void splash_timer_callback (void *data) {
+void splash_timer_callback (void * data) {
+	timer = NULL;
 	splash_deinit();
 	
 	menuStarted = true;

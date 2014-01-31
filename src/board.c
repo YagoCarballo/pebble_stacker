@@ -262,34 +262,36 @@ void boxDraw (Layer *layer, GContext *ctx) {
  * This Handles the Timer Calls
  */
 void timer_callback (void *data) {
-	move(); // moves the sticks
-	layer_mark_dirty(ui.boardLayer); // Marks the Layer as dirty so it is updated on the next ui refresh
-	
-	// Prints the Points into the Screen
-	mini_snprintf(debug.text, 30, "Points: %d", status.points);
-	text_layer_set_text(ui.debugLayer, debug.text);
-	
-	// Cancel the timer to change the speed (not needed, but i like to have it)
-	app_timer_cancel(status.timer);
-	free(status.timer);
-	
-	// Changes the Speed to increase difficulty
-	if (status.level >= 11) {
-		status.speed = status.speeds[5];
-	} else if (status.level < 2) {
-		status.speed = status.speeds[0];
-	} else if (status.level < 3) {
-		status.speed = status.speeds[1];
-	} else if (status.level < 5) {
-		status.speed = status.speeds[2];
-	} else if (status.level < 7) {
-		status.speed = status.speeds[3];
-	} else if (status.level < 11) {
-		status.speed = status.speeds[4];
+	if (status.end == false) {
+		// Cancel the timer
+		free(status.timer);
+		status.timer = NULL;
+		
+		move(); // moves the sticks
+		layer_mark_dirty(ui.boardLayer); // Marks the Layer as dirty so it is updated on the next ui refresh
+		
+		// Prints the Points into the Screen
+		mini_snprintf(debug.text, 30, "Points: %d", status.points);
+		text_layer_set_text(ui.debugLayer, debug.text);
+		
+		// Changes the Speed to increase difficulty
+		if (status.level >= 11) {
+			status.speed = status.speeds[5];
+		} else if (status.level < 2) {
+			status.speed = status.speeds[0];
+		} else if (status.level < 3) {
+			status.speed = status.speeds[1];
+		} else if (status.level < 5) {
+			status.speed = status.speeds[2];
+		} else if (status.level < 7) {
+			status.speed = status.speeds[3];
+		} else if (status.level < 11) {
+			status.speed = status.speeds[4];
+		}
+		
+		// The timer needs to be called again, as it is setted to NULL after the first Run
+		status.timer = app_timer_register(status.speed, timer_callback, NULL);
 	}
-	
-	// The timer needs to be called again for some weird reason, (bug?)
-	status.timer = app_timer_register(status.speed, timer_callback, NULL);
 }
 
 void do_some_cleanup () {
@@ -298,7 +300,7 @@ void do_some_cleanup () {
 		status.cleanScores = false;
 	}
 	
-	app_timer_cancel(status.timer);
+	if (status.timer != NULL) app_timer_cancel(status.timer); // TODO: Look why this breaks the App on the v2.0-RC
 	free(status.timer);
 	free(status.boxes);
 	
@@ -369,7 +371,7 @@ void window_appear(Window *window) {
 	}
 	
 	// Initializates the Timer
-	status.timer = app_timer_register(status.speed, timer_callback, NULL);
+	timer_callback(NULL);
 }
 
 /**
@@ -410,11 +412,26 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 	// If the Game didn't finish yet, handle the Logic, otherwise restart the game
 	if (!status.end) nextLevel();
 	else {
+		status.end = true;
+		free(status.timer);
+		status.timer = NULL;
+		
 		layer_set_hidden(text_layer_get_layer(ui.messageLayer), true);
-		app_timer_cancel(status.timer);
+		window_stack_pop(true);
 		scores_name_init(status.points);
 		status.cleanScores	= true;
 	}
+}
+
+/**
+ * Handles the Back Button Presses
+ */
+static void back_click_handler(ClickRecognizerRef recognizer, void *context) {
+	status.end = true;
+	free(status.timer);
+	status.timer = NULL;
+	
+	window_stack_pop(true);
 }
 
 /**
@@ -424,6 +441,7 @@ static void click_config_provider(void *context) {
 	window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
 	window_single_click_subscribe(BUTTON_ID_UP, select_click_handler);
 	window_single_click_subscribe(BUTTON_ID_DOWN, select_click_handler);
+	window_single_click_subscribe(BUTTON_ID_BACK , back_click_handler);
 }
 
 /**
@@ -437,6 +455,7 @@ void game_init(int difficulty) {
 	// sets the variable first to true (as it is it's first run)
 	status.first		= true;
 	status.difficulty	= difficulty;
+	status.end			= false;
 	
 	// Adds the Button Listeners
 	window_set_click_config_provider(ui.window, click_config_provider);
@@ -456,6 +475,12 @@ void game_init(int difficulty) {
  * Deallocates Memory when Destroyed
  */
 void game_deinit(void) {
+	status.end = true;
+	
+	status.timer = NULL;
+	if (status.timer != NULL) app_timer_cancel(status.timer);
+	free(status.timer);
+	
 	// Ressets Variables
 	window_appear(ui.window);
 	do_some_cleanup();

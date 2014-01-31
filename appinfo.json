@@ -15,14 +15,15 @@
     "resources": {
         "media": [
             {
+                "menuIcon": true,
                 "type": "png",
-                "name": "FRONT_ARROW",
-                "file": "images/front_arrow.png"
+                "name": "PEBBLE_STACKER_ICON",
+                "file": "images/PebbleStackerIcon3.png"
             },
             {
                 "type": "png",
-                "name": "BACK_ARROW",
-                "file": "images/back_arrow.png"
+                "name": "AMEIGA_SPLASH",
+                "file": "images/ameiga_pebble_splash.png"
             },
             {
                 "type": "png",
@@ -31,14 +32,13 @@
             },
             {
                 "type": "png",
-                "name": "AMEIGA_SPLASH",
-                "file": "images/ameiga_pebble_splash.png"
+                "name": "BACK_ARROW",
+                "file": "images/back_arrow.png"
             },
             {
-                "menuIcon": true,
                 "type": "png",
-                "name": "PEBBLE_STACKER_ICON",
-                "file": "images/PebbleStackerIcon3.png"
+                "name": "FRONT_ARROW",
+                "file": "images/front_arrow.png"
             }
         ]
     }
