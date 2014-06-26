@@ -69,5 +69,4 @@ void about_deinit (void) {
 	text_layer_destroy(ui.textLayer);
 	scroll_layer_destroy(ui.scroll);
 	layer_destroy(ui.windowLayer);
-	window_destroy(ui.window);
 }

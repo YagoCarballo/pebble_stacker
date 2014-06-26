@@ -123,5 +123,4 @@ void menu_level_deinit (void) {
 	text_layer_destroy(ui.titleLayer);
 	simple_menu_layer_destroy(ui.menuLayer);
 	layer_destroy(ui.windowLayer);
-	window_destroy(ui.window);
 }

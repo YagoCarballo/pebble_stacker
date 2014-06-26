@@ -190,6 +190,4 @@ void scores_init (void) {
 void scores_deinit (void) {
 	text_layer_destroy(ui.titleLayer);
 	text_layer_destroy(ui.scoresLayer);
-	layer_destroy(ui.windowLayer);
-	window_destroy(ui.window);
 }

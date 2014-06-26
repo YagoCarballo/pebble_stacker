@@ -264,7 +264,7 @@ void boxDraw (Layer *layer, GContext *ctx) {
 void timer_callback (void *data) {
 	if (status.end == false) {
 		// Cancel the timer
-		free(status.timer);
+		//free(status.timer);
 		status.timer = NULL;
 		
 		move(); // moves the sticks
@@ -300,8 +300,8 @@ void do_some_cleanup () {
 		status.cleanScores = false;
 	}
 	
-	if (status.timer != NULL) app_timer_cancel(status.timer); // TODO: Look why this breaks the App on the v2.0-RC
-	free(status.timer);
+	//if (status.timer != NULL) app_timer_cancel(status.timer); // TODO: Look why this breaks the App on the v2.0-RC
+	//free(status.timer);
 	free(status.boxes);
 	
 	int r;
@@ -316,7 +316,6 @@ void do_some_cleanup () {
  * Resets / Initializes all the Game Variables
  */
 void window_appear(Window *window) {
-	APP_LOG(APP_LOG_LEVEL_INFO, "---> APPEARED !!!!");
 	if (!status.first) do_some_cleanup();
 	
 	status.pos			= 0;
@@ -413,7 +412,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 	if (!status.end) nextLevel();
 	else {
 		status.end = true;
-		free(status.timer);
+		//free(status.timer);
 		status.timer = NULL;
 		
 		layer_set_hidden(text_layer_get_layer(ui.messageLayer), true);
@@ -428,7 +427,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
  */
 static void back_click_handler(ClickRecognizerRef recognizer, void *context) {
 	status.end = true;
-	free(status.timer);
+	//free(status.timer);
 	status.timer = NULL;
 	
 	window_stack_pop(true);
@@ -478,8 +477,8 @@ void game_deinit(void) {
 	status.end = true;
 	
 	status.timer = NULL;
-	if (status.timer != NULL) app_timer_cancel(status.timer);
-	free(status.timer);
+	//if (status.timer != NULL) app_timer_cancel(status.timer);
+	//free(status.timer);
 	
 	// Ressets Variables
 	window_appear(ui.window);
@@ -487,16 +486,14 @@ void game_deinit(void) {
 	
 	// Destroys Layers
 	layer_destroy(ui.boardLayer);
-	free(ui.boardLayer);
+	//free(ui.boardLayer);
 	
 	text_layer_destroy(ui.debugLayer);
-	free(ui.debugLayer);
+	//free(ui.debugLayer);
 	
 	text_layer_destroy(ui.messageLayer);
-	free(ui.messageLayer);
+	//free(ui.messageLayer);
 	
-	layer_destroy(ui.windowLayer);
-	free(ui.windowLayer);
-	
-	window_destroy(ui.window);
+	//layer_destroy(ui.windowLayer);
+	//free(ui.windowLayer);
 }

@@ -197,9 +197,6 @@ void scores_name_deinit (void) {
 	text_layer_destroy(ui.titleLayer);
 	text_layer_destroy(ui.selectorLayer);
 	text_layer_destroy(ui.activeLayer);
-	gbitmap_destroy(ui.frontArrow);
-	gbitmap_destroy(ui.backArrow);
-	gbitmap_destroy(ui.nextArrow);
 	
 	int r, c;
 	for (c=0;c<6;c++) {
@@ -207,8 +204,4 @@ void scores_name_deinit (void) {
 			text_layer_destroy(ui.letterLayers[c][r]);
 		}
 	}
-	
-	action_bar_layer_destroy(ui.actionBarLayer);
-	layer_destroy(ui.windowLayer);
-	window_destroy(ui.window);
 }

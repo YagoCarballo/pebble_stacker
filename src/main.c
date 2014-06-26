@@ -10,12 +10,8 @@ GBitmap     * splashImage;
 BitmapLayer * splashLayer;
 
 void splash_deinit () {
-	if (timer != NULL) app_timer_cancel (timer); // TODO: Look why this breaks the App on the v2.0-RC
+	if (timer != NULL) app_timer_cancel (timer);
 	window_stack_remove(window, true);
-	gbitmap_destroy(splashImage);
-	bitmap_layer_destroy(splashLayer);
-	window_destroy(window);
-	free(timer);
 }
 
 void splash_timer_callback (void * data) {

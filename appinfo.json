@@ -1,34 +1,29 @@
 {
-    "versionLabel": "1.0.2",
-    "uuid": "52ed0ef1-7128-47fe-b1c5-935ce15852e2",
-    "appKeys": {},
-    "longName": "The Pebble Stacker",
-    "versionCode": 1,
     "capabilities": [
         ""
     ],
     "shortName": "Stacker",
+    "longName": "Pebble Stacker",
+    "versionCode": 1,
+    "appKeys": {},
+    "uuid": "52ed0ef1-7128-47fe-b1c5-935ce15852e2",
     "companyName": "ameiga",
+    "versionLabel": "1.0.4",
     "watchapp": {
         "watchface": false
     },
     "resources": {
         "media": [
             {
-                "menuIcon": true,
                 "type": "png",
+                "menuIcon": true,
                 "name": "PEBBLE_STACKER_ICON",
                 "file": "images/PebbleStackerIcon3.png"
             },
             {
                 "type": "png",
-                "name": "AMEIGA_SPLASH",
-                "file": "images/ameiga_pebble_splash.png"
-            },
-            {
-                "type": "png",
-                "name": "NEXT_ARROW",
-                "file": "images/next_arrow.png"
+                "name": "FRONT_ARROW",
+                "file": "images/front_arrow.png"
             },
             {
                 "type": "png",
@@ -37,8 +32,13 @@
             },
             {
                 "type": "png",
-                "name": "FRONT_ARROW",
-                "file": "images/front_arrow.png"
+                "name": "NEXT_ARROW",
+                "file": "images/next_arrow.png"
+            },
+            {
+                "type": "png",
+                "name": "AMEIGA_SPLASH",
+                "file": "images/ameiga_pebble_splash.png"
             }
         ]
     }
