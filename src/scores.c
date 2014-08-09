@@ -1,6 +1,5 @@
 #include <pebble.h>
 #include "scores.h"
-#include "mini-printf.h"
 
 static const uint32_t SCORES_NAME_1 = 10;
 static const uint32_t SCORES_NAME_2 = 20;
@@ -109,7 +108,7 @@ void scores_window_appear (Window *window) {
 	}
 	
 	strcpy(status.scores, "");
-	mini_snprintf(status.scores, 50, 
+	snprintf(status.scores, 50, 
 		"%s      %d \n%s      %d \n%s      %d \n", 
 		status.name[0], status.points[0], 
 		status.name[1], status.points[1], 

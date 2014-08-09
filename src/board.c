@@ -1,6 +1,5 @@
 #include <pebble.h>
 #include "board.h"
-#include "mini-printf.h"
 #include "scores_name.h"
 
 static const int TIME_INTERVAL	= 100; // Default Speed (milliseconds)
@@ -271,7 +270,7 @@ void timer_callback (void *data) {
 		layer_mark_dirty(ui.boardLayer); // Marks the Layer as dirty so it is updated on the next ui refresh
 		
 		// Prints the Points into the Screen
-		mini_snprintf(debug.text, 30, "Points: %d", status.points);
+		snprintf(debug.text, 30, "Points: %d", status.points);
 		text_layer_set_text(ui.debugLayer, debug.text);
 		
 		// Changes the Speed to increase difficulty

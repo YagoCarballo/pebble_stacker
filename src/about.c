@@ -36,7 +36,7 @@ void about_window_load (Window *window) {
 	ui.textLayer = text_layer_create(textBounds);
 	text_layer_set_text_color(ui.textLayer, GColorBlack);
 	text_layer_set_background_color(ui.textLayer, GColorClear);
-	text_layer_set_text(ui.textLayer, "Developer:\nYago Carballo (yagocarballo@gmail.com)\n\nFrameworks:\nmini-printf (https://github.com/mludvig/mini-printf)\n\nGame By...\nameiga 2014\n\n");
+	text_layer_set_text(ui.textLayer, "Developer:\nYago Carballo (yagocarballo@gmail.com)\n\nGame By...\nameiga 2014\n\n");
   	text_layer_set_font(ui.textLayer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   	text_layer_set_text_alignment(ui.textLayer, GTextAlignmentCenter);
 	
