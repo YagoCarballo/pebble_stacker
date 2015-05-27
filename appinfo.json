@@ -4,10 +4,16 @@
         ""
     ],
     "companyName": "ameiga",
-    "longName": "Pebble Stacker",
+    "longName": "The Stacker",
     "projectType": "native",
     "resources": {
         "media": [
+            {
+                "file": "images/PebbleStackerIcon3.png",
+                "menuIcon": true,
+                "name": "PEBBLE_STACKER_ICON",
+                "type": "png"
+            },
             {
                 "file": "images/ameiga_pebble_splash.png",
                 "name": "AMEIGA_SPLASH",
@@ -27,19 +33,14 @@
                 "file": "images/front_arrow.png",
                 "name": "FRONT_ARROW",
                 "type": "png"
-            },
-            {
-                "file": "images/PebbleStackerIcon3.png",
-                "menuIcon": true,
-                "name": "PEBBLE_STACKER_ICON",
-                "type": "png"
             }
         ]
     },
+    "sdkVersion": "2",
     "shortName": "Stacker",
     "uuid": "52ed0ef1-7128-47fe-b1c5-935ce15852e2",
     "versionCode": 1,
-    "versionLabel": "1.1",
+    "versionLabel": "1.2",
     "watchapp": {
         "watchface": false
     }

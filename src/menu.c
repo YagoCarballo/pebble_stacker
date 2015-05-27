@@ -72,7 +72,7 @@ void menu_window_load (Window *window) {
 	ui.titleLayer = text_layer_create(titleBounds);
 	text_layer_set_text_color(ui.titleLayer, GColorWhite);
 	text_layer_set_background_color(ui.titleLayer, GColorBlack);
-	text_layer_set_text(ui.titleLayer, "Pebble Stacker");
+	text_layer_set_text(ui.titleLayer, "The Stacker");
   	text_layer_set_font(ui.titleLayer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   	text_layer_set_text_alignment(ui.titleLayer, GTextAlignmentCenter);
 	layer_add_child(ui.windowLayer, text_layer_get_layer(ui.titleLayer));
