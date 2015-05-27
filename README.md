@@ -1,9 +1,9 @@
-Pebble Stacker
+The Stacker
 ==============
 
-![Main Image](https://assets.getpebble.com/api/file/ATQMtZvXRoaFnsce6vI3/convert?cache=true&w=720&h=320&fit=crop)
+![Main Image](http://yagocarballo.me/img/portfolio/game.png)
 
-The classic stacker game now on your wrist, ideal to play in those spare minutes when you have to wait for something.
+The classic stacker game now on your Pebble Smartwatch, ideal to play in those spare minutes when you have to wait for something.
 
 [Pebble Store](https://apps.getpebble.com/applications/52b61a69f9d7a3652d000006)
 
